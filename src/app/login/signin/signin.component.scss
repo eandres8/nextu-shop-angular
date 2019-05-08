@@ -1,0 +1,16 @@
+div.login-content {
+    height: 100vh;
+    background: url("../../../assets/img/login-fondo.jpg");
+}
+
+.login-form {
+    width: 40%;
+    margin: auto;
+    position: relative;
+    top: 25%;
+
+    label {
+        color: white;
+    }
+
+}
