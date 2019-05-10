@@ -3,16 +3,18 @@
 	<!-- ============================================ -->
 	<!-- Formulario Login -->
 	<!-- ============================================ -->
-	<form class="login-form">
+	<form class="login-form" ngNativeValidate #f="ngForm" (ngSubmit)="ingresar( f )">
 		<div class="form-group">
 			<label>Usuario</label>
-			<input type="email" class="form-control" placeholder="correo@ejemplo.com">
+			<input type="email" class="form-control" placeholder="correo@ejemplo.com"
+				name="email" ngModel required>
 			<strong class="form-text text-danger">El usuario no es válido</strong>
 		</div>
 		
 		<div class="form-group">
 			<label>Contraseña</label>
-			<input type="password" class="form-control" placeholder="******************">
+			<input type="password" class="form-control" placeholder="******************"
+				name="password" ngModel required>
 			<strong class="form-text text-danger">No es una contraseña válida</strong>
 		</div>
 
