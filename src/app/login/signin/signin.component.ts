@@ -12,6 +12,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SigninComponent implements OnInit {
 
+	error_code: string = '';
+
 	constructor(
 		public router: Router,
 		public _auth: AuthService,
@@ -24,14 +26,24 @@ export class SigninComponent implements OnInit {
 	// 
 	// =======================================================
 	ingresar = ( forma: NgForm ) => {
-		console.log(forma);
+		console.log(forma.value);
 
 		if ( forma.valid ) {	
 			// consulta a backend
-			this._auth.login( forma.value );
-			this.router.navigate(['/']);
-		}
 
+			this._auth.login( forma.value )
+				.then( (data:any) => {
+					if ( data.ok ) {
+						this.error_code = '';
+						this.router.navigate(['/']);
+					} else {
+						this.error_code = data.message;
+					}
+				} )
+				.catch( err => {
+					this.error_code = 'No se pudo conectar con el servidor';
+				} );
+		}
 
 	};
 
