@@ -13,6 +13,7 @@ import { LoginModule } from './login/login.module';
 import { PagesModule } from './pages/pages.module';
 import { ServicesModule } from './services/services.module';
 import { SharedModule } from './shared/shared.module';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
 	declarations: [
@@ -26,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
 		PagesModule,
 		ServicesModule,
 		SharedModule,
+		PipesModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

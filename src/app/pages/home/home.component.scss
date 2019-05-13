@@ -1,8 +1,22 @@
 div.home-content {
     height: 100vh;
     background: url("../../../assets/img/main-fondo.jpg");
+    
+    div.home-content-product {
+        width:100%; 
+        background: white; 
+        height: 85vh; 
+        overflow: auto;
+
+        .row {
+            margin: auto; 
+            position: relative;
+        }
+    }
+    
 }
 
 div.margen-top-10 {
     margin-top: 10px !important;
 }
+
