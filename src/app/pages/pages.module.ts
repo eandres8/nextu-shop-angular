@@ -9,16 +9,18 @@ import { PipesModule } from '../pipes/pipes.module';
 // Components
 import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { DetalleComponent } from './detalle/detalle.component';
 
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
-import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
 	declarations: [
 		HomeComponent,
 		PagesComponent,
-		CarritoComponent
+		CarritoComponent,
+		DetalleComponent
 	],
 	imports: [
 		CommonModule,
