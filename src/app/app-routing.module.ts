@@ -6,7 +6,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { SigninComponent } from './login/signin/signin.component';
 
 const routes: Routes = [
-	{path:'', component: HomeComponent, pathMatch: 'full'},
 	{path:'login', component: SigninComponent},
 ];
 
