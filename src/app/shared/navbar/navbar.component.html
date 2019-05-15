@@ -2,14 +2,14 @@
 	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 		<a class="navbar-brand" href="#">Tienda</a>
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item active">
-				<a class="nav-link" href="#">Productos</a>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" [routerLink]="['/home']">Productos</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Carrito de compras</a>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" [routerLink]="['/shopping']">Carrito de compras</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Salir</a>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" [routerLink]="['/login']">Salir</a>
 			</li>
 		</ul>
 	</div>

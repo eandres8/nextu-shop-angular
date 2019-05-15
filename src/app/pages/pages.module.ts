@@ -12,11 +12,13 @@ import { PagesComponent } from './pages.component';
 
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
+import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
 	declarations: [
 		HomeComponent,
-		PagesComponent
+		PagesComponent,
+		CarritoComponent
 	],
 	imports: [
 		CommonModule,
