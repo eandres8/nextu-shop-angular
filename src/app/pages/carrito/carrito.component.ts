@@ -1,15 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-carrito',
-  templateUrl: './carrito.component.html',
-  styleUrls: ['./carrito.component.scss']
+	selector: 'app-carrito',
+	templateUrl: './carrito.component.html',
+	styleUrls: ['./carrito.component.scss']
 })
 export class CarritoComponent implements OnInit {
 
-  constructor() { }
+	total: number = 0;
 
-  ngOnInit() {
-  }
+	constructor(
+		private _product: ProductsService,
+		private router: Router,
+	) { }
+
+	ngOnInit() {
+		this._product.tienda.forEach( p => {
+			this.total += ( p.cantidad * p.price );
+		} );
+	}
+
+	pagar = () => {
+		this._product.tienda = [];
+		this.router.navigate(['/home']);
+	}
 
 }
