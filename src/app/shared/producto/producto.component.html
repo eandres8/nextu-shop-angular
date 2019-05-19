@@ -2,7 +2,22 @@
 	<img class="card-img-top" src="{{data.img}}" alt="Card image cap">
 	<div class="card-body">
 		<h5 class="card-title">{{data.name}}</h5>
-		<p class="card-text">{{data.price | currency}}</p>
-		<a href="#" class="btn btn-primary">Ver más</a>
+		<p class="card-text">Precio: {{data.price | currency}}</p>
+		<p class="card-text">Unidades: {{data.units}}</p>
+		<div class="row">
+			<div class="col-md-5">
+				<a [routerLink]="[ '/product', data.id ]" class="btn btn-primary btn-sm">Ver más</a>
+			</div>
+			<div class="col-md-7">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<button type="button" class="btn btn-warning btn-sm" (click)="agregar(data.id)">
+							Agregar
+						</button>
+					</div>
+					<input type="number" min="1" [max]="data.units" class="form-control" [(ngModel)]="cantidad">
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

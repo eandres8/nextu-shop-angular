@@ -10,28 +10,37 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class HomeComponent implements OnInit {
 
-	products: any[];
 	filtro: string;
 
 	constructor(
 		public _product: ProductsService,
 	) {
-		this.products = [];
 		this.filtro = '';
 	}
 
 	ngOnInit() {
 		this._product.getProducts()
 			.then( (data:any) => {
-				if ( data.length > 0 ) {
-					this.products = data;
-				} else {
-					this.products = [];
-				}
+				console.log(data);
 			} )
 			.catch( err => {
 				console.log("error");
 			} );
+	}
+
+
+	// =======================================================
+	// 
+	// =======================================================
+	agregarCarrito = ( e ) => {
+		console.log(e);
+		this._product.data.forEach( p => {
+			if (e.id == p.id) {
+				p.units -= e.cantidad;
+				p.cantidad = e.cantidad;
+				this._product.setTienda(p);
+			}
+		} );
 	}
 
 }
