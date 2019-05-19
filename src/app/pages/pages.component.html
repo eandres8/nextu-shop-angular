@@ -2,6 +2,14 @@
 
 	<app-navbar></app-navbar>
 
+	<div *ngIf="_product.success" class="alert alert-success" role="alert">
+		Se agregó el producto en la cesta correctamente
+	</div>
+
+	<div *ngIf="_product.warning" class="alert alert-warning" role="alert">
+		El elemento ya esta almacenado en la cesta
+	</div>
+
 	<div class="container margen-top-10">
 
 		<router-outlet></router-outlet>

@@ -9,6 +9,8 @@ export class ProductsService {
 
 	data: any = [];
 	tienda: any[] = [];
+	success: boolean = false;
+	warning: boolean = false;
 
 	constructor(
 		private http: HttpClient,
@@ -60,11 +62,24 @@ export class ProductsService {
 		console.log("producto set Tienda", producto);
 		let parcial: any = this.tienda.find( t => producto.id == t.id );
 		if (parcial && parcial.id) {
-			return false;
+			this.warning = true;
+			this.showAlert();
 		} else {
 			this.tienda.push(producto);
-			console.log("tienda", this.tienda);
+			this.success = true;
+			this.showAlert();
 			return true;
 		}
+	}
+
+
+	// =======================================================
+	// 
+	// =======================================================
+	showAlert = () => {
+		setTimeout( () => {
+			this.success = false;
+			this.warning = false;
+		}, 2500 );
 	}
 }

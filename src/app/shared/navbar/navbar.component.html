@@ -1,16 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" [routerLink]="['/']">Tienda</a>
+
 	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-		<a class="navbar-brand" href="#">Tienda</a>
-		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item" routerLinkActive="active">
-				<a class="nav-link" [routerLink]="['/home']">Productos</a>
-			</li>
-			<li class="nav-item" routerLinkActive="active">
-				<a class="nav-link" [routerLink]="['/shopping']">Carrito de compras</a>
-			</li>
-			<li class="nav-item" routerLinkActive="active">
-				<a class="nav-link" [routerLink]="['/login']">Salir</a>
-			</li>
-		</ul>
+
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+
+		<form class="form-inline my-2 my-lg-0">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item" routerLinkActive="active">
+					<a class="nav-link" [routerLink]="['/home']">
+						<i class="fa fa-th-list" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li class="nav-item" routerLinkActive="active">
+					<a class="nav-link" [routerLink]="['/shopping']">
+						<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+						<span *ngIf="_product.tienda.length > 0" class="badge badge-pill badge-danger">{{ _product.tienda.length > 9 ? '9+' : _product.tienda.length }}</span>
+					</a>
+				</li>
+				<li class="nav-item" routerLinkActive="active">
+					<a class="nav-link" [routerLink]="['/login']">
+						<i class="fa fa-sign-out" aria-hidden="true"></i>
+					</a>
+				</li>
+			</ul>
+		</form>
 	</div>
 </nav>
