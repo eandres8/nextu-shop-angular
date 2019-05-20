@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 // Services
 import { AuthService } from './auth.service';
 import { ProductsService } from './products.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
 	imports: [
@@ -14,6 +15,7 @@ import { ProductsService } from './products.service';
 	providers: [
 		AuthService,
 		ProductsService,
+		AuthGuard,
 	],
 })
 export class ServicesModule { }

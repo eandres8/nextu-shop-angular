@@ -7,9 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
+	email:string = null;
+
 	constructor(
 		private http: HttpClient,
-	) { }
+	) {
+		this.email = localStorage.getItem('email') ? localStorage.getItem('email') : '';
+	}
 
 	// funcion para login
 	login = ( body ) => {
@@ -23,5 +27,10 @@ export class AuthService {
 				err => reject(err) );
 		} );
 	};
+
+
+	logout = () => {
+		localStorage.clear();
+	}
 
 }

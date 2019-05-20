@@ -20,6 +20,8 @@ export class SigninComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
+		this._auth.email = '';
+		localStorage.clear();
 	}
 
 	// =======================================================
@@ -33,9 +35,12 @@ export class SigninComponent implements OnInit {
 
 			this._auth.login( forma.value )
 				.then( (data:any) => {
+					console.log("data login", data);
 					if ( data.ok ) {
 						this.error_code = '';
-						this.router.navigate(['/']);
+						localStorage.setItem('email', forma.value.user);
+						this._auth.email = forma.value.user;
+						this.router.navigate(['/home']);
 					} else {
 						this.error_code = data.message;
 					}

@@ -25,12 +25,12 @@ export class ProductsService {
 		return new Promise((resolve, reject) => {
 			return this.http.get(url)
 				.subscribe((data:any) => {
-					console.log("data from products", data);
+					// console.log("data from products", data);
 					this.data = data.map( e => {
 						e.img = `${environment.SERVER}/img/${e.img}`;
 						return e;
 					} );
-					console.log("data from products modificados", this.data);
+					// console.log("data from products modificados", this.data);
 					resolve({ok:true});
 				},
 					err => reject(err)
