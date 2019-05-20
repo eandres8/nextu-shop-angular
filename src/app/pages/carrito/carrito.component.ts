@@ -12,7 +12,7 @@ export class CarritoComponent implements OnInit {
 	total: number = 0;
 
 	constructor(
-		private _product: ProductsService,
+		public _product: ProductsService,
 		private router: Router,
 	) { }
 

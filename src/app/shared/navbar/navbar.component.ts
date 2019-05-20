@@ -9,7 +9,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class NavbarComponent implements OnInit {
 
 	constructor(
-		private _product: ProductsService
+		public _product: ProductsService
 	) { }
 
 	ngOnInit() {
