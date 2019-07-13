@@ -21,7 +21,7 @@ export class ProductsService {
 	// 
 	// =======================================================
 	getProducts = () => {
-		let url = `${environment.SERVER}/products`;
+		let url = `${environment.SERVER}/productos`;
 		return new Promise((resolve, reject) => {
 			return this.http.get(url)
 				.subscribe((data:any) => {
@@ -42,7 +42,7 @@ export class ProductsService {
 	// 
 	// =======================================================
 	getPruductById = ( id ) => {
-		let url = `${environment.SERVER}/products/${id}`;
+		let url = `${environment.SERVER}/productos/${id}`;
 		return new Promise((resolve, reject) => {
 			return this.http.get(url)
 				.subscribe((data: any) => {
@@ -54,6 +54,27 @@ export class ProductsService {
 				);
 		});
 	}
+
+
+	// =======================================================
+	// Realiza el posteo de los productos en carrito para descontar
+	// =======================================================
+	pagarProductos() {
+		let url = `${environment.SERVER}/productos`;
+		let body = {
+			productos: this.tienda
+		};
+
+		return new Promise((resolve, reject) => {
+			return this.http.post(url, body)
+				.subscribe((data: any) => {
+					resolve(data);
+				},
+					err => reject(err)
+				);
+		});
+	}
+
 
 	// =======================================================
 	// 
@@ -71,7 +92,6 @@ export class ProductsService {
 			return true;
 		}
 	}
-
 
 	// =======================================================
 	// 
