@@ -20,7 +20,7 @@ export class ProductsService {
 	// =======================================================
 	// 
 	// =======================================================
-	getProducts = () => {
+	getProducts(){
 		let url = `${environment.SERVER}/productos`;
 		return new Promise((resolve, reject) => {
 			return this.http.get(url)
@@ -41,7 +41,7 @@ export class ProductsService {
 	// =======================================================
 	// 
 	// =======================================================
-	getPruductById = ( id ) => {
+	getPruductById( id ){
 		let url = `${environment.SERVER}/productos/${id}`;
 		return new Promise((resolve, reject) => {
 			return this.http.get(url)
@@ -79,7 +79,7 @@ export class ProductsService {
 	// =======================================================
 	// 
 	// =======================================================
-	setTienda = ( producto:any ) => {
+	setTienda ( producto:any ){
 		console.log("producto set Tienda", producto);
 		let parcial: any = this.tienda.find( t => producto.id == t.id );
 		if (parcial && parcial.id) {
@@ -96,7 +96,7 @@ export class ProductsService {
 	// =======================================================
 	// 
 	// =======================================================
-	showAlert = () => {
+	showAlert(){
 		setTimeout( () => {
 			this.success = false;
 			this.warning = false;

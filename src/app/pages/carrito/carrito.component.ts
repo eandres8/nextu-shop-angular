@@ -23,8 +23,15 @@ export class CarritoComponent implements OnInit {
 	}
 
 	pagar = () => {
-		this._product.tienda = [];
-		this.router.navigate(['/home']);
+		this._product.pagarProductos()
+			.then( data => {
+				console.log(data);
+				this._product.tienda = [];
+				this.router.navigate(['/home']);
+			} )
+			.catch( err => {
+				console.warn(err);
+			} );
 	}
 
 }
