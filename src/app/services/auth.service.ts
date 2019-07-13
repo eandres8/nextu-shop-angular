@@ -17,7 +17,7 @@ export class AuthService {
 
 	// funcion para login
 	login = ( body ) => {
-		let url = `${environment.SERVER}/login`;
+		let url = `${environment.SERVER_API}/login`;
 		return new Promise( (resolve, reject) => {
 			return this.http.post(url, body)
 				.subscribe(data => {

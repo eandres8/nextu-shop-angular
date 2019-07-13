@@ -1,6 +1,7 @@
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 // Services
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,11 +14,15 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SigninComponent implements OnInit {
 
 	error_code: string = '';
+	image: any = '';
 
 	constructor(
 		public router: Router,
 		public _auth: AuthService,
-	) { }
+	) {
+		this.image = `url(${environment.SERVER}/login-fondo.jpg)`;
+		console.log(this.image);
+	}
 
 	ngOnInit() {
 		this._auth.email = '';
